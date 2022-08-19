@@ -1,15 +1,10 @@
 <?php
 
+require 'Connection.php';
 
-$text = "My first php site!!!";
+$config = require 'config.php';
 
-
-try{
-    $db = new PDO('mysql:host=localhost;dbname=phplearn', 'bduser', 'password');
-} catch (Exception $ex) {
-    die(var_dump($ex));
-}
+$db = Connection::make($config['database']);
 
 
 require "index.view.php";
-

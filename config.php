@@ -1,7 +1,10 @@
-
+<?php
 
 return [
     'database' => [
-        'connect' =>
+        'connect' => 'mysql:host=localhost' . ';',
+        'dbname' => 'dbname=phplearn',
+        'user' => 'bduser',
+        'password' => 'password'
         ]    
-]
+];
