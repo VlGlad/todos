@@ -8,15 +8,22 @@
 </head>
 <body>
     
+    <ul>
+        <?php foreach ($table as $row):?>
+            <?php if ($row->completed):?>
+                <li><strike><?=$row->description?></strike></li>
+            <?php else:?>
+                <li><?=$row->description?></li>
+            <?php endif;?>
+        <?php endforeach;?>
+    </ul>
 
-    <?php
-    $stmt = $db->query("SELECT * FROM todos");
-    while ($row = $stmt->fetch())
-    {
-        echo '<pre>';
-        print_r($row);
-    }
-    ?>
+    <form action="">
+        <input type="text" name="description">
+        <input type="button" value="Send">
+    </form>
+    
+
 
 </body>
 </html>
