@@ -13,6 +13,7 @@ class ComposerStaticInit5493ecff04a0331f6a9650c21355586d
         'Composer\\Autoload\\ComposerStaticInit5493ecff04a0331f6a9650c21355586d' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
+        'PageController' => __DIR__ . '/../..' . '/app/controllers/PageController.php',
         'QuerySelector' => __DIR__ . '/../..' . '/core/database/QuerySelector.php',
         'Router' => __DIR__ . '/../..' . '/core/Router.php',
         'TodoController' => __DIR__ . '/../..' . '/app/controllers/TodoController.php',

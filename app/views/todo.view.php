@@ -7,7 +7,7 @@
     <title>TODOS</title>
 </head>
 <body>
-    
+    <a href="/about">About page</a>
     <ul>
         <?php foreach ($table as $row):?>
             <?php if ($row->completed):?>
