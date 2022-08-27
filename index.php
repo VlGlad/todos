@@ -1,19 +1,16 @@
 <?php
 
-require 'Connection.php';
+require "vendor/autoload.php";
 
-require 'QuerySelector.php';
+App::bind(
+    'database', require "core/bootstrap.php"
+);
 
-$config = require 'config.php';
-
-$connection = Connection::make($config['database']);
-
-$db = new QuerySelector($connection);
-
-$table = $db->getAllTasks();
+$table = App::get('database')->getAllTasks();
 
 
-require "index.view.php";
+
+TodoController::loadTodoList($table);
 
 /* создал бд todolist
 теперь надо создать поля, но пока не понятно использовать char

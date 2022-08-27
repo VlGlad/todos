@@ -18,9 +18,9 @@
         <?php endforeach;?>
     </ul>
 
-    <form action="">
+    <form action="storeTask@store">
         <input type="text" name="description">
-        <input type="button" value="Send">
+        <input type="submit" value="Send">
     </form>
     
 
