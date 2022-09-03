@@ -2,15 +2,19 @@
 
 require "vendor/autoload.php";
 
+function dd($var)
+{
+    die(var_dump($var));
+}
+
 App::bind(
     'database', require "core/bootstrap.php"
 );
 
-$table = App::get('database')->getAllTasks();
+$router = Router::create('app/routes.php');
+$router->direct('');
 
-
-
-TodoController::loadTodoList($table);
+//TodoController::loadTodoList($table);
 
 /* создал бд todolist
 теперь надо создать поля, но пока не понятно использовать char

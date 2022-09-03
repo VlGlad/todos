@@ -3,13 +3,14 @@
 class TodoController
 {
 
-    public static function loadTodoList($table)
+    public static function loadTodoList()
     {
+        $table = App::get('database')->getAllTasks();
         require "app/views/todo.view.php";
     }
 
-    public static function storeTodo(PDO $db)
+    public static function storeTodo()
     {
-        die(App::get('database'));
+        dd(App::get('database'));
     }
 }

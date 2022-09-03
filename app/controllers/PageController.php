@@ -1,9 +1,14 @@
 <?php
 
 class PageController{
-    
-    public function about( $args)
+
+    public function index( $args = NULL)
     {
-        require "app/views/about.php";
+        require "app/views/todo.view.php";
+    }
+    
+    public function about( $args = NULL)
+    {
+        require "app/views/about.view.php";
     }
 }
