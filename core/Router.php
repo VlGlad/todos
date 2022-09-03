@@ -22,9 +22,24 @@ class Router{
         $this->post[$alias] = $uri;
     }
 
+    public function getError( $errorNumber)
+    {
+        
+        switch ($errorNumber) {
+            case 400:
+                $this->callController("PageController", "Error400");
+                break;
+            
+            case 404:
+                $this->callController("PageController", "Error404");
+                break;
+        }
+    }
+
     public function direct()
     {
-        $uri = trim($_SERVER['REQUEST_URI'], '/');
+        $uri = trim(
+            parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), '/');
         $method = 'get';
         if ($_SERVER['REQUEST_METHOD'] == 'POST') $method = 'post';
         
@@ -43,14 +58,14 @@ class Router{
     {
         if (! class_exists($controller)){
             return (
-                $this->callController("PageController", "Error404")
+                $this->callController("PageController", "error404")
             );  
         }
 
         $controller = new $controller;
         if (! method_exists($controller, $action)){
             return (
-                $this->callController("PageController", "Error404")
+                $this->callController("PageController", "error404")
             );
         }
         
