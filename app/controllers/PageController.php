@@ -11,4 +11,8 @@ class PageController{
     {
         require "app/views/about.view.php";
     }
+    public function Error404( $args = NULL)
+    {
+        require "app/views/404.view.php";
+    }
 }

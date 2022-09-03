@@ -25,17 +25,35 @@ class Router{
     public function direct()
     {
         $uri = trim($_SERVER['REQUEST_URI'], '/');
-        dd($_SERVER);
         $method = 'get';
         if ($_SERVER['REQUEST_METHOD'] == 'POST') $method = 'post';
-        if (array_key_exists($uri, $this->$method)){
-            $this->callController(...explode('@', $this->$method[$uri]));
+        
+        if (! array_key_exists($uri, $this->$method)){
+            return (
+                $this->callController("PageController", "Error404")
+            );    
         }
+        
+        return (
+            $this->callController(...explode('@', $this->$method[$uri]))
+        );
     }
 
     public function callController($controller, $action)
     {
+        if (! class_exists($controller)){
+            return (
+                $this->callController("PageController", "Error404")
+            );  
+        }
+
         $controller = new $controller;
-        $controller->$action();
+        if (! method_exists($controller, $action)){
+            return (
+                $this->callController("PageController", "Error404")
+            );
+        }
+        
+        return $controller->$action();
     }
 }
