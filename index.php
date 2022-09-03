@@ -11,10 +11,13 @@ App::bind(
     'database', require "core/bootstrap.php"
 );
 
-$router = Router::create('app/routes.php');
-$router->direct('');
 
-//TodoController::loadTodoList($table);
+App::bind(
+    'router', Router::create('app/routes.php')
+);
+
+App::get('router')->direct();
+
 
 /* создал бд todolist
 теперь надо создать поля, но пока не понятно использовать char

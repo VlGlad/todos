@@ -9,10 +9,22 @@ class QuerySelector
         $this->pdo = $pdo;
     }    
 
-    public function getAllTasks(){
-        $stmt = $this->pdo->query("SELECT * FROM todos");
+    public function getAllRows($table){
+        $stmt = $this->pdo->query("SELECT * FROM {$table}");
         $table = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $table;
+    }
+
+    public function insert($table, $data)
+    {
+        $request = sprintf(
+            "INSERT INTO %s (%s) VALUES (%s)",
+            $table,
+            implode(', ', array_keys($data)),
+            ':' . implode(', :', array_keys($data))
+        );
+        $stmt = $this->pdo->prepare($request);
+        $stmt->execute($data);
     }
 }
 

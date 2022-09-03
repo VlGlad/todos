@@ -22,7 +22,7 @@
         <input type="text" name="description">
         <input type="submit" value="Send">
     </form>
-    
+    <p>добавить кнопку удаления, редактирования, и перебрать views - добавить темплейты</p>
 
 
 </body>

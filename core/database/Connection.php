@@ -7,7 +7,8 @@ class Connection
             $db = new PDO(
                 $config['connect'] . $config['dbname'],
                 $config['user'],
-                $config['password']
+                $config['password'],
+                $config['options']
             );
         } catch(Exception $ex) {
             die(var_dump($ex));
