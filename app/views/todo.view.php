@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="public/main.css">
     <title>TODOS</title>
 </head>
 <body>
     <a href="/about">About page</a>
-    <ul>
+    <ol>
         <?php foreach ($table as $row):?>
-            <?php if ($row->completed):?>
-                <li><strike><?=$row->description?></strike></li>
-            <?php else:?>
-                <li><?=$row->description?></li>
-            <?php endif;?>
+            <div class="todoRow">
+                <?php if ($row->completed):?>
+                    <li id=<?=$row->id?>><strike><?=$row->description?></strike></li>
+                <?php else:?>
+                    <li id=<?=$row->id?>><?=$row->description?></li>
+                <?php endif;?>
+                <button value="del"></button>
+            </div>
         <?php endforeach;?>
-    </ul>
+    </ol>
 
     <form action="store">
         <input type="text" name="description">

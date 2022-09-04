@@ -1,0 +1,9 @@
+body{
+    background-color: bisque;
+}
+li{
+    margin-right: 5px;
+}
+div.todoRow{
+    display: flex;
+}
