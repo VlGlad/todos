@@ -1,16 +1,8 @@
-/* function doAJAX () {
-    fetch("jstest")
-    .then(result => result.text())
-    .then((data) => { console.log(data); });
-}
-
-doAJAX(); */
-
-
-function sendButtonRequest(button_id){
+function sendButtonRequest(event){
+    button_id = event.target.id
     let data_body = "button_id=" + button_id;
 
-    fetch("jstest", { 
+    fetch("delete", { 
         method: "POST",
         body: data_body,
         headers:{"content-type": "application/x-www-form-urlencoded"} 
@@ -21,8 +13,11 @@ function sendButtonRequest(button_id){
             }   
     return response.text()
     })
-    .then((data) => {console.log(data);})
-    .catch(() => console.log('ошибка'));
+    .then((data) => {
+        parent = event.target.parentNode;
+        parent.style.display = 'None';
+    })
+    .catch();
 }
 
 
@@ -31,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener('click', function(event) {
-            sendButtonRequest(event.target.id)
+            sendButtonRequest(event)
           })
     }
 })

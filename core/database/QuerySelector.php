@@ -26,5 +26,17 @@ class QuerySelector
         $stmt = $this->pdo->prepare($request);
         $stmt->execute($data);
     }
+
+    public function delete($table, $data)
+    {
+        $request = sprintf(
+            "DELETE FROM %s WHERE %s=%s",
+            $table,
+            implode('', array_keys($data)),
+            ':' . implode('', array_keys($data))
+        );
+        $stmt = $this->pdo->prepare($request);
+        $stmt->execute($data);
+    }
 }
 

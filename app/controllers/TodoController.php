@@ -5,7 +5,6 @@ class TodoController
 
     public static function loadTodoList()
     {
-        
         $table = App::get('database')->getAllRows("todos");
         require "app/views/todo.view.php";
     }
@@ -20,5 +19,10 @@ class TodoController
         $_GET['completed'] = 0;
         App::get('database')->insert("todos", $_GET);
         header('Location: '. '/');
+    }
+
+    public function deleteTodo()
+    {
+        App::get('database')->delete("todos", ["id" => $_POST["button_id"]]);
     }
 }
