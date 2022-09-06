@@ -14,4 +14,9 @@ class PageController{
     {
         require "app/views/404.view.php";
     }
+    public function js($args = NULL)
+    {
+        $data_json = json_encode($_POST, JSON_UNESCAPED_UNICODE);
+        echo $data_json;
+    }
 }

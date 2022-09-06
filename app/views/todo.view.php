@@ -5,11 +5,11 @@
     <?php foreach ($table as $row):?>
         <div class="todoRow">
             <?php if ($row->completed):?>
-                <li id=<?=$row->id?>><strike><?=$row->description?></strike></li>
+                <li><strike><?=$row->description?></strike></li>
             <?php else:?>
-                <li id=<?=$row->id?>><?=$row->description?></li>
+                <li><?=$row->description?></li>
             <?php endif;?>
-            <button value="del"></button>
+            <button id=<?=$row->id?> class="todoRowButton" type="button">del</button>
         </div>
     <?php endforeach;?>
 </ol>
