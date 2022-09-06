@@ -16,7 +16,7 @@ class PageController{
     }
     public function js($args = NULL)
     {
-        $data_json = json_encode($_POST, JSON_UNESCAPED_UNICODE);
+        $data_json = json_encode($_POST["button_id"], JSON_UNESCAPED_UNICODE);
         echo $data_json;
     }
 }
