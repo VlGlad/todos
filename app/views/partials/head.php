@@ -9,3 +9,11 @@
     <title>TODOS</title>
 </head>
 <body>
+    <div class="header">
+        <img src="/public/logo-nobg.png" alt="My Todo">
+        <nav>
+            <a href="/">Main page</a>
+            <a href="/about">About page</a>
+        </nav>
+    </div>
+    <div class="mainContainer">

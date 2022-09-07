@@ -1,9 +1,33 @@
 body{
-    background-color: bisque;
+    background-color: #f3f4f6;
+    margin: 0;
+}
+div.header{
+    /* padding: 10px; */
+    border-bottom: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div.header img{
+    width: 10%;
+}
+div.mainContainer{
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+div.mainContainer ul{
+    padding-inline-start: 0px;
 }
 li{
     margin-right: 5px;
 }
 div.todoRow{
     display: flex;
+    padding: 1px;
+}
+div.todoRow button{
+    margin-right: 25px;
 }
